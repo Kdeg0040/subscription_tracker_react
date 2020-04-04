@@ -1,12 +1,13 @@
 import React from 'react';
 
 import Layout from './components/Layout/Layout';
+import Subscriptions from './containers/Subscriptions/Subscriptions'
 
 function App() {
   return (
     <div>
       <Layout>
-        <p>Test</p>
+        <Subscriptions />
       </Layout>
     </div>
   );

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
+import AddButton from '../../components/AddButton/AddButton';
+
 class Subscriptions extends Component {
   render () {
     return (
-      <div></div>
+      <AddButton />
     );
   }
 }
