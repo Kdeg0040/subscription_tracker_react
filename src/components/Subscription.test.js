@@ -9,4 +9,14 @@ describe('<Subscription />', () => {
   it('renders correctly', () => {
     expect(subscription).toMatchSnapshot();
   });
+
+  it('initializes subscription details in `state`', () => {
+    const subscriptionDetails = {
+      name: '',
+      cost: '',
+      frequency: '',
+      startDate: '' 
+    }
+    expect(subscription.state()).toEqual(subscriptionDetails);
+  });
 });
