@@ -4,12 +4,7 @@ class Subscription extends Component {
   constructor() {
     super();
 
-    this.state = {
-      name: '',
-      cost: '',
-      frequency: '',
-      startDate: ''
-    };
+    this.state = { company: '' };
   }
   
   render () {

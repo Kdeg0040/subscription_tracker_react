@@ -11,12 +11,7 @@ describe('<Subscription />', () => {
   });
 
   it('initializes subscription details in `state`', () => {
-    const subscriptionDetails = {
-      name: '',
-      cost: '',
-      frequency: '',
-      startDate: '' 
-    }
+    const subscriptionDetails = { company: '' }
     expect(subscription.state()).toEqual(subscriptionDetails);
   });
 });
