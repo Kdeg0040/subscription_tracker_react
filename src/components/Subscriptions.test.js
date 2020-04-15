@@ -9,5 +9,9 @@ describe('<Subscriptions />', () => {
   it('renders correctly', () => {
     expect(subscriptions).toMatchSnapshot();
   });
+
+  it('initializes the `state` with an empty list of subscriptions', () => {
+    expect(subscriptions.state().subsList).toEqual([]);
+  });
 });
 
