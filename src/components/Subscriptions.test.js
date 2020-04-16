@@ -19,6 +19,11 @@ describe('<Subscriptions />', () => {
       subscriptions.find('.btn-add').simulate('click');
       expect(subscriptions.state().subsList.length).toEqual(1);
     })
+
+    it('adds a new `Subscription` to the rendered list', () => {
+      subscriptions.find('.btn-add').simulate('click');
+      expect(subscriptions.find('.subs-list').children().length).toEqual(2);
+    });
   });
 });
 
