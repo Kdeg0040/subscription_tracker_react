@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Subscription from './Subscription';
+
 class Subscriptions extends Component {
   constructor() {
     super();
@@ -8,9 +10,18 @@ class Subscriptions extends Component {
       subsList: []
     };
   }
+
+  addSub = () => {
+    const { subsList } = this.state;
+    subsList.push(<Subscription />);
+    this.setState({ subsList });
+  }
+
   render () {
     return (
-      <div></div>
+      <div>
+        <button className="btn-add" onClick={this.addSub}>+</button>
+      </div>
     )
   }
 }

@@ -13,5 +13,12 @@ describe('<Subscriptions />', () => {
   it('initializes the `state` with an empty list of subscriptions', () => {
     expect(subscriptions.state().subsList).toEqual([]);
   });
+
+  describe('when clicking the `+` button', () => {
+    it('adds a new `Subscription` to state', () => {
+      subscriptions.find('.btn-add').simulate('click');
+      expect(subscriptions.state().subsList.length).toEqual(1);
+    })
+  });
 });
 
