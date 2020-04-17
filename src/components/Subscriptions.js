@@ -25,7 +25,7 @@ class Subscriptions extends Component {
 
   render () {
     return (
-      <div className="section">
+      <div className="subs-list section">
         {
           this.state.subsList.map(sub => {
             return (

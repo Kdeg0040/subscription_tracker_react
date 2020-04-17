@@ -22,7 +22,7 @@ describe('<Subscriptions />', () => {
 
     it('adds a new `Subscription` to the rendered list', () => {
       subscriptions.find('.btn-add').simulate('click');
-      expect(subscriptions.find('.subs-list').children().length).toEqual(2);
+      expect(subscriptions.find('.subs-list').children().length).toEqual(3);
     });
   });
 });
