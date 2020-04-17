@@ -17,14 +17,20 @@ describe('<Subscriptions />', () => {
   describe('when clicking the `+` button', () => {
     beforeEach(() => {
       subscriptions.find('.btn-add').simulate('click');
-    })
+    });
+
+    afterEach(() => {
+      subscriptions.setState({ subsList: [] });
+    });
 
     it('adds a new `Subscription` to state', () => {
       expect(subscriptions.state().subsList.length).toEqual(1);
+      subscriptions.find('.btn-add').simulate('click');
+      expect(subscriptions.state().subsList.length).toEqual(2);
     })
 
     it('adds a new `Subscription` to the rendered list', () => {
-      expect(subscriptions.find('.subs-list').children().length).toEqual(3);
+      expect(subscriptions.find('.subs-list').children().length).toEqual(2);
     });
   });
 });
