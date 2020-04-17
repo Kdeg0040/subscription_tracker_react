@@ -15,13 +15,15 @@ describe('<Subscriptions />', () => {
   });
 
   describe('when clicking the `+` button', () => {
-    it('adds a new `Subscription` to state', () => {
+    beforeEach(() => {
       subscriptions.find('.btn-add').simulate('click');
+    })
+
+    it('adds a new `Subscription` to state', () => {
       expect(subscriptions.state().subsList.length).toEqual(1);
     })
 
     it('adds a new `Subscription` to the rendered list', () => {
-      subscriptions.find('.btn-add').simulate('click');
       expect(subscriptions.find('.subs-list').children().length).toEqual(3);
     });
   });
