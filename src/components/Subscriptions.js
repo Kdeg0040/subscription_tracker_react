@@ -29,11 +29,11 @@ class Subscriptions extends Component {
         {
           this.state.subsList.map(sub => {
             return (
-            <div className="box is-outlined" key={sub.id}>{sub.id}. Subscription</div>
+            <div className="box has-background-grey-lighter" key={sub.id}>{sub.id}. Subscription</div>
             )
           })
         }
-        <button className="btn-add button is-success is-light is-outlined is-fullwidth" onClick={this.addSub}><strong>+</strong></button>
+        <button className="btn-add button is-success is-light is-outlined is-size-4 is-fullwidth" onClick={this.addSub}><strong>+</strong></button>
       </div>
     )
   }
