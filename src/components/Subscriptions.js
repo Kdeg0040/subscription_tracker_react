@@ -25,17 +25,15 @@ class Subscriptions extends Component {
 
   render () {
     return (
-      <div>
-        <div className="subs-list">
+      <div className="section">
         {
           this.state.subsList.map(sub => {
             return (
-            <div key={sub.id}>{sub.id}. Subscription</div>
+            <div className="box is-outlined" key={sub.id}>{sub.id}. Subscription</div>
             )
           })
         }
-        </div>
-        <button className="btn-add" onClick={this.addSub}>+</button>
+        <button className="btn-add button is-success is-light is-outlined is-fullwidth" onClick={this.addSub}><strong>+</strong></button>
       </div>
     )
   }
