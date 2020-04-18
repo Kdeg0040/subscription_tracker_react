@@ -3,9 +3,10 @@ import { shallow } from 'enzyme';
 
 import Subscription from './Subscription';
 
-const subscription = shallow(<Subscription />);
-
 describe('<Subscription />', () => {
+  const props = { sub: 1 }
+  const subscription = shallow(<Subscription {...props}/>);
+
   it('renders correctly', () => {
     expect(subscription).toMatchSnapshot();
   });

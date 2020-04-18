@@ -9,7 +9,7 @@ class Subscription extends Component {
   
   render () {
     return (
-      <div></div>
+      <div className="box has-background-grey-lighter">{this.props.sub.id}. Subscription</div>
     );
   }
 }

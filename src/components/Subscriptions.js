@@ -16,10 +16,7 @@ class Subscriptions extends Component {
     const ids = this.state.subsList.map(sub => sub.id);
     const max_id = ids.length > 0 ? Math.max(...ids) : 0;
     
-    subsList.push({ 
-      id: max_id + 1,
-      details: <Subscription />
-    });
+    subsList.push({ id: max_id + 1 });
     this.setState({ subsList });
   }
 
@@ -29,7 +26,7 @@ class Subscriptions extends Component {
         {
           this.state.subsList.map(sub => {
             return (
-            <div className="box has-background-grey-lighter" key={sub.id}>{sub.id}. Subscription</div>
+              <Subscription key={sub.id} sub={sub} />
             )
           })
         }
