@@ -27,5 +27,10 @@ describe('<FormModal />', () => {
       formModal.find('.btn-cancel').simulate('click');
       expect(mockHide).toHaveBeenCalledTimes(1);
     });
+
+    it('can be done by clicking on the `x` button', () => {
+      formModal.find('.btn-cross').simulate('click');
+      expect(mockHide).toHaveBeenCalledTimes(1);
+    });
   });
 });

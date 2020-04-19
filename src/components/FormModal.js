@@ -6,7 +6,7 @@ const formModal = (props) => (
     <div className="modal-card">
       <header className="modal-card-head">
         <p className="modal-card-title">Subscription Details</p>
-        <button className="delete" aria-label="close"></button>
+        <button className="btn-cross delete" aria-label="close" onClick={ () => props.hide() }></button>
       </header>
       <section className="modal-card-body">
         <div className="form">
