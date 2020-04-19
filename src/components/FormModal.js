@@ -4,7 +4,9 @@ class FormModal extends Component {
   constructor () {
     super ();
 
-    this.state = {};
+    this.state = {
+      company: ''
+    };
   }
 
   render () {
@@ -21,7 +23,7 @@ class FormModal extends Component {
                 <div className="field">
                   <label className="label has-text-left">Company Name</label>
                   <div className="control">
-                  <input className="input" type="text" placeholder="e.g. Spotify"></input>
+                  <input className="input-company input" type="text" placeholder="e.g. Spotify" onChange={ e => this.setState({ company: e.target.value }) }></input>
                 </div>
               </div>
             </div>

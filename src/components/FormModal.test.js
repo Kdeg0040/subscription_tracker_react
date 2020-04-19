@@ -35,6 +35,13 @@ describe('<FormModal />', () => {
     });
   });
 
+  describe('when typing into the company input', () => {
+    it('updates the company in `state`', () => {
+      formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
+      expect(formModal.state().company).toEqual('Test Company');
+    })
+  });
+
   describe('when clicking the `save` button', () => {
     it('calls the addSub callback', () => {
       formModal.find('.btn-save').simulate('click');
