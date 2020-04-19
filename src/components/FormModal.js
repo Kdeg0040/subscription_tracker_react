@@ -1,29 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const formModal = (props) => (
-  <div className={ props.show }>
-    <div className="modal-background" onClick={ () => props.hide() }></div>
-    <div className="modal-card">
-      <header className="modal-card-head">
-        <p className="modal-card-title">Subscription Details</p>
-        <button className="btn-cross delete" aria-label="close" onClick={ () => props.hide() }></button>
-      </header>
-      <section className="modal-card-body">
-        <div className="form">
-            <div className="field">
-              <label className="label has-text-left">Company Name</label>
-              <div className="control">
-              <input className="input" type="text" placeholder="e.g. Spotify"></input>
+class FormModal extends Component {
+  constructor () {
+    super ();
+
+    this.state = {};
+  }
+
+  render () {
+    return (
+      <div className={ this.props.show }>
+        <div className="modal-background" onClick={ () => this.props.hide() }></div>
+        <div className="modal-card">
+          <header className="modal-card-head">
+            <p className="modal-card-title">Subscription Details</p>
+            <button className="btn-cross delete" aria-label="close" onClick={ () => this.props.hide() }></button>
+          </header>
+          <section className="modal-card-body">
+            <div className="form">
+                <div className="field">
+                  <label className="label has-text-left">Company Name</label>
+                  <div className="control">
+                  <input className="input" type="text" placeholder="e.g. Spotify"></input>
+                </div>
+              </div>
             </div>
-          </div>
+          </section>
+          <footer className="modal-card-foot">
+            <button className="btn-save button is-success" onClick={ () => this.props.save() }>Save</button>
+            <button className="btn-cancel button" onClick={ () => this.props.hide() } >Cancel</button>
+          </footer>
         </div>
-      </section>
-      <footer className="modal-card-foot">
-        <button className="btn-save button is-success" onClick={ () => props.save() }>Save</button>
-        <button className="btn-cancel button" onClick={ () => props.hide() } >Cancel</button>
-      </footer>
-    </div>
-  </div>
-);
+      </div>
+    );
+  }
+}
 
-export default formModal;
+export default FormModal;
