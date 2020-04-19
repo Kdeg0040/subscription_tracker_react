@@ -9,6 +9,10 @@ describe('<FormModal />', () => {
   const props = { hide: mockHide };
   const formModal = shallow(<FormModal {...props} />);
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('renders correctly', () => {
     expect(formModal).toMatchSnapshot();
   });
@@ -23,7 +27,7 @@ describe('<FormModal />', () => {
   describe('when user clicks on `cancel` button', () => {
     it('calls the hide callback', () => {
       formModal.find('.btn-cancel').simulate('click');
-      expect(mockHide).toHaveBeenCalledTimes(2);
+      expect(mockHide).toHaveBeenCalledTimes(1);
     });
   });
 });
