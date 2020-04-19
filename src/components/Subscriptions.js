@@ -20,6 +20,7 @@ class Subscriptions extends Component {
     
     subsList.push({ id: max_id + 1 });
     this.setState({ subsList });
+    this.hideModalHandler();
   }
 
   showModalHandler = () => {
@@ -45,7 +46,7 @@ class Subscriptions extends Component {
           })
         }
         <button className="btn-add button is-success is-light is-outlined is-size-4 is-fullwidth" onClick={this.showModalHandler}><strong>+</strong></button>
-        <FormModal show={ this.modalToggle() } hide={ this.hideModalHandler } />
+        <FormModal show={ this.modalToggle() } hide={ this.hideModalHandler } save={ this.addSub } />
       </div>
     )
   }

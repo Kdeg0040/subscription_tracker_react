@@ -19,7 +19,7 @@ const formModal = (props) => (
         </div>
       </section>
       <footer className="modal-card-foot">
-        <button className="button is-success">Save</button>
+        <button className="btn-save button is-success" onClick={ () => props.save() }>Save</button>
         <button className="btn-cancel button" onClick={ () => props.hide() } >Cancel</button>
       </footer>
     </div>

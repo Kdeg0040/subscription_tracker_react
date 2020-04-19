@@ -6,7 +6,8 @@ import FormModal from './FormModal';
 
 describe('<FormModal />', () => {
   const mockHide = jest.fn();
-  const props = { hide: mockHide };
+  const mockSave = jest.fn()
+  const props = { hide: mockHide, save: mockSave };
   const formModal = shallow(<FormModal {...props} />);
 
   afterEach(() => {
@@ -31,6 +32,13 @@ describe('<FormModal />', () => {
     it('can be done by clicking on the `x` button', () => {
       formModal.find('.btn-cross').simulate('click');
       expect(mockHide).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('when clicking the `save` button', () => {
+    it('calls the addSub callback', () => {
+      formModal.find('.btn-save').simulate('click');
+      expect(mockSave).toHaveBeenCalledTimes(1);
     });
   });
 });
