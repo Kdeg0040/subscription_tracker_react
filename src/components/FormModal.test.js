@@ -17,15 +17,13 @@ describe('<FormModal />', () => {
     expect(formModal).toMatchSnapshot();
   });
 
-  describe('when user clicks on modal background', () => {
-    it('calls the hide callback', () => {
+  describe('to trigger the `hide` callback', () => {
+    it('can be done by clicking on modal background', () => {
       formModal.find('.modal-background').simulate('click');
       expect(mockHide).toHaveBeenCalledTimes(1);
     });
-  });
 
-  describe('when user clicks on `cancel` button', () => {
-    it('calls the hide callback', () => {
+    it('can be done by clicking on `cancel` button', () => {
       formModal.find('.btn-cancel').simulate('click');
       expect(mockHide).toHaveBeenCalledTimes(1);
     });
