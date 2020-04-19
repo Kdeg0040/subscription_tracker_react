@@ -7,7 +7,8 @@ class Subscriptions extends Component {
     super();
 
     this.state = {
-      subsList: []
+      subsList: [],
+      showModal: false
     };
   }
 

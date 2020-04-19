@@ -14,6 +14,10 @@ describe('<Subscriptions />', () => {
     expect(subscriptions.state().subsList).toEqual([]);
   });
 
+  it('initializes the `state` not displaying modal form', () => {
+    expect(subscriptions.state().showModal).toEqual(false);
+  });
+
   describe('when clicking the `+` button', () => {
     beforeEach(() => {
       subscriptions.find('.btn-add').simulate('click');
