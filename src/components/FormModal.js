@@ -1,8 +1,8 @@
 import React from 'react';
 
 const formModal = (props) => (
-  <div className={props.show}>
-    <div className="modal-background"></div>
+  <div className={ props.show }>
+    <div className="modal-background" onClick={ () => props.hide() }></div>
     <div className="modal-card">
       <header className="modal-card-head">
         <p className="modal-card-title">Subscription Details</p>

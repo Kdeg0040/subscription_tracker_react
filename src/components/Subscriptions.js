@@ -24,12 +24,10 @@ class Subscriptions extends Component {
 
   showModalHandler = () => {
     this.setState({ showModal: true });  
-    this.modalToggle();
   }
 
   hideModalHandler = () => {
     this.setState({ showModal: false });
-    this.modalToggle();
   }
 
   modalToggle = () => {
@@ -47,7 +45,7 @@ class Subscriptions extends Component {
           })
         }
         <button className="btn-add button is-success is-light is-outlined is-size-4 is-fullwidth" onClick={this.showModalHandler}><strong>+</strong></button>
-        <FormModal show={ this.modalToggle() } />
+        <FormModal show={ this.modalToggle() } hide={ this.hideModalHandler } />
       </div>
     )
   }
