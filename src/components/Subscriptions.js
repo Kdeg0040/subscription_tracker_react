@@ -21,6 +21,10 @@ class Subscriptions extends Component {
     this.setState({ subsList });
   }
 
+  showModalHandler = () => {
+    this.setState({ showModal: true })    
+  }
+
   render () {
     return (
       <div className="subs-list section">
@@ -31,7 +35,7 @@ class Subscriptions extends Component {
             )
           })
         }
-        <button className="btn-add button is-success is-light is-outlined is-size-4 is-fullwidth" onClick={this.addSub}><strong>+</strong></button>
+        <button className="btn-add button is-success is-light is-outlined is-size-4 is-fullwidth" onClick={this.showModalHandler}><strong>+</strong></button>
       </div>
     )
   }

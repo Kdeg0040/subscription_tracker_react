@@ -23,15 +23,15 @@ describe('<Subscriptions />', () => {
       subscriptions.find('.btn-add').simulate('click');
     });
 
-    afterEach(() => {
-      subscriptions.setState({ subsList: [] });
+    it('toggles showModal state', () => {
+      expect(subscriptions.state().showModal).toEqual(true);
     });
 
-    it('adds a new `Subscription` to state', () => {
-      expect(subscriptions.state().subsList.length).toEqual(1);
-      subscriptions.find('.btn-add').simulate('click');
-      expect(subscriptions.state().subsList.length).toEqual(2);
-    })
+    // it('adds a new `Subscription` to state', () => {
+    //   expect(subscriptions.state().subsList.length).toEqual(1);
+    //   subscriptions.find('.btn-add').simulate('click');
+    //   expect(subscriptions.state().subsList.length).toEqual(2);
+    // })
   });
 });
 
