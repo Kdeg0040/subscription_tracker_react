@@ -23,15 +23,25 @@ describe('<Subscriptions />', () => {
       subscriptions.find('.btn-add').simulate('click');
     });
 
-    it('toggles showModal state', () => {
+    it('can toggle showModal state to true', () => {
       expect(subscriptions.state().showModal).toEqual(true);
     });
 
-    // it('adds a new `Subscription` to state', () => {
-    //   expect(subscriptions.state().subsList.length).toEqual(1);
-    //   subscriptions.find('.btn-add').simulate('click');
-    //   expect(subscriptions.state().subsList.length).toEqual(2);
-    // })
+    describe('and the user wants to cancel', () => {
+      it('can toggle showModal state', () => {
+        subscriptions.instance().hideModalHandler();
+        expect(subscriptions.state().showModal).toEqual(false);
+      });
+    })
+
+    describe('and the user wants to save the subscription', () => {
+      it('adds a new `Subscription` to state', () => {
+        subscriptions.instance().addSub();
+        expect(subscriptions.state().subsList.length).toEqual(1);
+        subscriptions.instance().addSub();
+        expect(subscriptions.state().subsList.length).toEqual(2);
+      })
+    });
   });
 });
 

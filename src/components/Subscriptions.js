@@ -27,6 +27,11 @@ class Subscriptions extends Component {
     this.modalToggle();
   }
 
+  hideModalHandler = () => {
+    this.setState({ showModal: false });
+    this.modalToggle();
+  }
+
   modalToggle = () => {
     return this.state.showModal ? "modal is-active" : "modal";
   }
