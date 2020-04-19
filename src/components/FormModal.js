@@ -1,7 +1,7 @@
 import React from 'react';
 
-const formModal = () => (
-  <div className="modal is-active">
+const formModal = (props) => (
+  <div className={props.show}>
     <div className="modal-background"></div>
     <div className="modal-card">
       <header className="modal-card-head">

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Subscription from './Subscription';
+import FormModal from './FormModal';
 
 class Subscriptions extends Component {
   constructor() {
@@ -22,7 +23,12 @@ class Subscriptions extends Component {
   }
 
   showModalHandler = () => {
-    this.setState({ showModal: true })    
+    this.setState({ showModal: true });  
+    this.modalToggle();
+  }
+
+  modalToggle = () => {
+    return this.state.showModal ? "modal is-active" : "modal";
   }
 
   render () {
@@ -36,6 +42,7 @@ class Subscriptions extends Component {
           })
         }
         <button className="btn-add button is-success is-light is-outlined is-size-4 is-fullwidth" onClick={this.showModalHandler}><strong>+</strong></button>
+        <FormModal show={ this.modalToggle() } />
       </div>
     )
   }
