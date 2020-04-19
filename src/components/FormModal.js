@@ -20,7 +20,7 @@ const formModal = (props) => (
       </section>
       <footer className="modal-card-foot">
         <button className="button is-success">Save</button>
-        <button className="button">Cancel</button>
+        <button className="btn-cancel button" onClick={ () => props.hide() } >Cancel</button>
       </footer>
     </div>
   </div>
