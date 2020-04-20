@@ -29,7 +29,7 @@ class FormModal extends Component {
             </div>
           </section>
           <footer className="modal-card-foot">
-            <button className="btn-save button is-success" onClick={ () => this.props.save() }>Save</button>
+            <button className="btn-save button is-success" onClick={ () => this.props.save(this.state.company) }>Save</button>
             <button className="btn-cancel button" onClick={ () => this.props.hide() } >Cancel</button>
           </footer>
         </div>
