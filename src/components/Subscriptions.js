@@ -46,7 +46,7 @@ class Subscriptions extends Component {
         {
           this.state.subsList.map(sub => {
             return (
-              <Subscription key={sub.id} sub={sub} />
+              <Subscription key={sub.id} sub={sub} delete={this.deleteSub} />
             )
           })
         }
