@@ -18,21 +18,25 @@ describe('<FormModal />', () => {
     expect(formModal).toMatchSnapshot();
   });
 
-  describe('to trigger the `hide` callback', () => {
-    it('can be done by clicking on modal background', () => {
+  describe('when clicking the modal background', () => {
+    it('triggers the `hide` callback', () => {
       formModal.find('.modal-background').simulate('click');
       expect(mockHide).toHaveBeenCalledTimes(1);
-    });
+    })
+  });
 
-    it('can be done by clicking on `cancel` button', () => {
+  describe('when clicking the `cancel` button', () => {
+    it('triggers the `hide` callback', () => {
       formModal.find('.btn-cancel').simulate('click');
       expect(mockHide).toHaveBeenCalledTimes(1);
-    });
+    })
+  });
 
-    it('can be done by clicking on the `x` button', () => {
+  describe('when clicking the `x` button', () => {
+    it('triggers the `hide` callback', () => {
       formModal.find('.btn-cross').simulate('click');
       expect(mockHide).toHaveBeenCalledTimes(1);
-    });
+    })
   });
 
   describe('when typing into the company input', () => {
@@ -43,7 +47,7 @@ describe('<FormModal />', () => {
   });
 
   describe('when clicking the `save` button', () => {
-    it('calls the addSub callback', () => {
+    it('triggers the `save` callback', () => {
       formModal.find('.btn-save').simulate('click');
       expect(mockSave).toHaveBeenCalledTimes(1);
     });
