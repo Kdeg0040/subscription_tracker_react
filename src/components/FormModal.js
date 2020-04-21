@@ -7,20 +7,18 @@ class FormModal extends Component {
     this.state = {
       company: ''
     };
+
+    this.initialState = this.state;
   }
 
   handleSubmit = (formData) => {
     this.props.save(formData);
-    this.setState({
-      company: ''
-    });
+    this.setState(this.initialState);
   }
 
   handleCancel = () => {
     this.props.hide();
-    this.setState({
-      company: ''
-    });
+    this.setState(this.initialState);
   }
 
   render () {
