@@ -9,6 +9,13 @@ class FormModal extends Component {
     };
   }
 
+  handleSubmit = (formData) => {
+    this.props.save(formData);
+    this.setState({
+      company: ''
+    })
+  };
+
   render () {
     return (
       <div className={ this.props.show }>
@@ -23,13 +30,13 @@ class FormModal extends Component {
                 <div className="field">
                   <label className="label has-text-left">Company Name</label>
                   <div className="control">
-                  <input className="input-company input" type="text" placeholder="e.g. Spotify" onChange={ e => this.setState({ company: e.target.value }) }></input>
+                  <input className="input-company input" type="text" value={this.state.company} placeholder="e.g. Spotify" onChange={ e => this.setState({ company: e.target.value }) }></input>
                 </div>
               </div>
             </div>
           </section>
           <footer className="modal-card-foot">
-            <button className="btn-save button is-success" onClick={ () => this.props.save(this.state.company) }>Save</button>
+            <button className="btn-save button is-success" onClick={ () => this.handleSubmit(this.state.company) }>Save</button>
             <button className="btn-cancel button" onClick={ () => this.props.hide() } >Cancel</button>
           </footer>
         </div>

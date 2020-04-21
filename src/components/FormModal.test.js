@@ -47,5 +47,11 @@ describe('<FormModal />', () => {
       formModal.find('.btn-save').simulate('click');
       expect(mockSave).toHaveBeenCalledTimes(1);
     });
+
+    it('resets all input values', () => {
+      formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
+      formModal.find('.btn-save').simulate('click');
+      expect(formModal.state().company).toEqual('');
+    });
   });
 });
