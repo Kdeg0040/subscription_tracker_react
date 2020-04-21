@@ -30,7 +30,7 @@ class FormModal extends Component {
         <div className="modal-card">
           <header className="modal-card-head">
             <p className="modal-card-title">Subscription Details</p>
-            <button className="btn-cross delete" aria-label="close" onClick={ () => this.props.hide() }></button>
+            <button className="btn-cross delete" aria-label="close" onClick={ () => this.handleCancel() }></button>
           </header>
           <section className="modal-card-body">
             <div className="form">
