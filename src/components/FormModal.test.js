@@ -36,6 +36,12 @@ describe('<FormModal />', () => {
       formModal.find('.btn-cancel').simulate('click');
       expect(mockHide).toHaveBeenCalledTimes(1);
     })
+
+    it('resets all input values', () => {
+      formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
+      formModal.find('.btn-cancel').simulate('click');
+      expect(formModal.state().company).toEqual('');
+    });
   });
 
   describe('when clicking the `x` button', () => {

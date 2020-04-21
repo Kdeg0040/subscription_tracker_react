@@ -44,7 +44,7 @@ class FormModal extends Component {
           </section>
           <footer className="modal-card-foot">
             <button className="btn-save button is-success" onClick={ () => this.handleSubmit(this.state.company) }>Save</button>
-            <button className="btn-cancel button" onClick={ () => this.props.hide() } >Cancel</button>
+            <button className="btn-cancel button" onClick={ () => this.handleCancel() } >Cancel</button>
           </footer>
         </div>
       </div>
