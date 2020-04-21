@@ -23,6 +23,11 @@ class Subscriptions extends Component {
     this.hideModalHandler();
   }
 
+  deleteSub = id => {
+    const subsList = this.state.subsList.filter(sub => sub.id !== id);
+    this.setState({ subsList })
+  }
+
   showModalHandler = () => {
     this.setState({ showModal: true });  
   }

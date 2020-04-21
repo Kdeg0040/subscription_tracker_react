@@ -43,5 +43,15 @@ describe('<Subscriptions />', () => {
       })
     });
   });
+
+  describe('when the user wants to remove an added subscription', () => {
+    it('removes the subscription from state', () => {
+      subscriptions.setState({ subsList: [
+        {id: 1, details: { company: "Test Company" } }]
+      });
+      subscriptions.instance().deleteSub(1);
+      expect(subscriptions.state().subsList.length).toEqual(0);
+    });
+  });
 });
 
