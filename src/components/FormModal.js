@@ -13,13 +13,20 @@ class FormModal extends Component {
     this.props.save(formData);
     this.setState({
       company: ''
-    })
-  };
+    });
+  }
+
+  handleCancel = () => {
+    this.props.hide();
+    this.setState({
+      company: ''
+    });
+  }
 
   render () {
     return (
       <div className={ this.props.show }>
-        <div className="modal-background" onClick={ () => this.props.hide() }></div>
+        <div className="modal-background" onClick={ () => this.handleCancel() }></div>
         <div className="modal-card">
           <header className="modal-card-head">
             <p className="modal-card-title">Subscription Details</p>
