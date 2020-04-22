@@ -14,6 +14,7 @@ class Subscription extends Component {
 
         <div className="media-content">
         <h1 className="title">{this.props.sub.details.company}</h1>
+        <h2 className="subtitle has-text-weight-light is-lowercase">description</h2>
         </div>
 
         <div className="media-right">
