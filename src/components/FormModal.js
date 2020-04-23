@@ -21,6 +21,10 @@ class FormModal extends Component {
     this.setState(this.initialState);
   }
 
+  handleCompanyInputChange = (input) => {
+    this.setState({ company: input })
+  }
+
   render () {
     return (
       <div className={ this.props.show }>
@@ -35,7 +39,7 @@ class FormModal extends Component {
                 <div className="field">
                   <label className="label has-text-left">Company Name</label>
                   <div className="control">
-                  <input className="input-company input" type="text" value={this.state.company} placeholder="e.g. Spotify" onChange={ e => this.setState({ company: e.target.value }) }></input>
+                  <input className="input-company input" type="text" value={this.state.company} placeholder="e.g. Spotify" onChange={ e => this.handleCompanyInputChange(e.target.value) }></input>
                 </div>
               </div>
             </div>
