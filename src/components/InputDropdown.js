@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const inputDropdown = (props) => (
- <div></div>
-);
+class InputDropdown extends Component {
+  render () {
+    return (
+      <div className="dropdown is-pulled-left is-active">
+        <div className="dropdown-menu">
+          <div className="dropdown-content"> 
+            {
+              this.props.formData.suggestions.map((sugg, ind) => {
+                return (
+                  <a href={sugg.domain} className="dropdown-item" key={ind}>
+                    <div className="level">
+                      <div className="level-left">
+                        <div className="level-item">
+                          <figure className="image is-rounded is-32x32">
+                            <img src={sugg.logo} alt=""></img>
+                          </figure>
+                        </div>
+                        <div className="level-item">
+                        {sugg.name}
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                )
+              })
+            }
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
 
-export default inputDropdown;
+export default InputDropdown;
