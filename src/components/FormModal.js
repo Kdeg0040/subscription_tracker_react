@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import InputDropdown from './InputDropdown';
+
 class FormModal extends Component {
   constructor () {
     super ();
@@ -53,32 +55,7 @@ class FormModal extends Component {
                 <div className="control">
                   <input className="input-company input" type="text" value={this.state.company} placeholder="e.g. Spotify" onChange={ e => this.handleCompanyInputChange(e.target.value) }></input>
                 </div>
-                <div className="dropdown is-pulled-left is-active">
-                  <div className="dropdown-menu">
-                    <div className="dropdown-content"> 
-                      {
-                        this.state.suggestions.map((sugg, ind) => {
-                          return (
-                            <a href={sugg.domain} className="dropdown-item" key={ind}>
-                              <div className="level">
-                                <div className="level-left">
-                                  <div className="level-item">
-                                    <figure className="image is-rounded is-32x32">
-                                      <img src={sugg.logo} alt=""></img>
-                                    </figure>
-                                  </div>
-                                  <div className="level-item">
-                                  {sugg.name}
-                                  </div>
-                                </div>
-                              </div>
-                            </a>
-                          )
-                        })
-                      }
-                    </div>
-                  </div>
-                </div>
+                <InputDropdown formData={this.state} />
               </div>
             </div>
           </section>
