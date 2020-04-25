@@ -5,7 +5,8 @@ class FormModal extends Component {
     super ();
 
     this.state = {
-      company: ''
+      company: '',
+      suggestions: []
     };
 
     this.initialState = this.state;
@@ -23,6 +24,17 @@ class FormModal extends Component {
 
   handleCompanyInputChange = (input) => {
     this.setState({ company: input })
+    this.handleSuggestions(input);
+  }
+
+  handleSuggestions = async (partialCompanyName) => {
+    const queryString = partialCompanyName
+    const endpoint = 'https://autocomplete.clearbit.com/v1/companies/suggest?query=:';
+
+    const response = await fetch(endpoint + queryString)
+    const data = await response.json();
+
+    this.setState({ suggestions: data })
   }
 
   render () {
