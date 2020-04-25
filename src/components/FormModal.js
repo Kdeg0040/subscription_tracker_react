@@ -5,7 +5,8 @@ class FormModal extends Component {
     super ();
 
     this.state = {
-      company: ''
+      company: '',
+      suggestions: []
     };
 
     this.initialState = this.state;
@@ -23,6 +24,17 @@ class FormModal extends Component {
 
   handleCompanyInputChange = (input) => {
     this.setState({ company: input })
+    this.handleSuggestions(input);
+  }
+
+  handleSuggestions = async (partialCompanyName) => {
+    const queryString = partialCompanyName
+    const endpoint = 'https://autocomplete.clearbit.com/v1/companies/suggest?query=:';
+
+    const response = await fetch(endpoint + queryString)
+    const data = await response.json();
+
+    this.setState({ suggestions: data })
   }
 
   render () {
@@ -40,6 +52,32 @@ class FormModal extends Component {
                 <label className="label has-text-left">Company Name</label>
                 <div className="control">
                   <input className="input-company input" type="text" value={this.state.company} placeholder="e.g. Spotify" onChange={ e => this.handleCompanyInputChange(e.target.value) }></input>
+                </div>
+                <div className="dropdown is-pulled-left is-active">
+                  <div className="dropdown-menu">
+                    <div className="dropdown-content"> 
+                      {
+                        this.state.suggestions.map((sugg, ind) => {
+                          return (
+                            <a href={sugg.domain} className="dropdown-item" key={ind}>
+                              <div className="level">
+                                <div className="level-left">
+                                  <div className="level-item">
+                                    <figure className="image is-rounded is-32x32">
+                                      <img src={sugg.logo} alt=""></img>
+                                    </figure>
+                                  </div>
+                                  <div className="level-item">
+                                  {sugg.name}
+                                  </div>
+                                </div>
+                              </div>
+                            </a>
+                          )
+                        })
+                      }
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

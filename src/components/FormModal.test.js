@@ -8,6 +8,7 @@ describe('<FormModal />', () => {
   const mockHide = jest.fn();
   const mockSave = jest.fn()
   const props = { hide: mockHide, save: mockSave };
+
   const formModal = shallow(<FormModal {...props} />);
 
   afterEach(() => {
@@ -58,10 +59,37 @@ describe('<FormModal />', () => {
   });
 
   describe('when typing into the company input', () => {
+    const url = 'https://autocomplete.clearbit.com/v1/companies/suggest?query=:spot'
+    const mockSuccessResponse = [
+      {"name":"Spotify"},
+      {"name":"Spot.IM"},
+      {"name":"Spotrac"},
+      {"name":"SpotKeys.com"},
+      {"name":"SpotOn"}
+    ];
+    const mockJsonPromise = Promise.resolve(mockSuccessResponse);
+    const mockFetchPromise = Promise.resolve({
+      json: () => mockJsonPromise
+    });
+    jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);    
+
     it('updates the company in `state`', () => {
       formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
       expect(formModal.state().company).toEqual('Test Company');
-    })
+    });
+
+    it('can retrieve company name suggestions', (done) => {
+      formModal.find('.input-company').simulate('change', { target: { value: 'spot' } });
+      expect(global.fetch).toHaveBeenCalledTimes(1);
+      expect(global.fetch).toHaveBeenCalledWith(url);
+
+      process.nextTick(() => {
+        expect(formModal.state().suggestions.length).toEqual(5)
+      });
+
+      global.fetch.mockClear();
+      done();
+    });
   });
 
   describe('when clicking the `save` button', () => {
