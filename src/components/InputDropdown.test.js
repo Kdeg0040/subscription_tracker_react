@@ -15,4 +15,8 @@ describe('<InputDropdown', () => {
   it('renders correctly', () => {
     expect(inputDropdown).toMatchSnapshot();
   });
+
+  it('initially does not render any dropdown items', () => {
+    expect(inputDropdown.find('.dropdown-item').length).toEqual(0)
+  });
 });
