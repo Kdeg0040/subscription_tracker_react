@@ -58,6 +58,31 @@ describe('<FormModal />', () => {
     });
   });
 
+  describe('when clicking the `save` button', () => {
+    it('triggers the `save` callback', () => {
+      formModal.find('.btn-save').simulate('click');
+      expect(mockSave).toHaveBeenCalledTimes(1);
+    });
+
+    it('resets all input values', () => {
+      formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
+      formModal.find('.btn-save').simulate('click');
+      expect(formModal.state().company).toEqual('');
+    });
+  });
+
+  describe('when a suggestion is clicked', () => {
+    it('autofills the input field', () => {
+      formModal.instance().handleSuggestionSelection('Test Company');
+      expect(formModal.find('.input-company').props().value).toEqual('Test Company');
+    });
+
+    it('clears suggestions', () => {
+      formModal.instance().handleSuggestionSelection();
+      expect(formModal.state().suggestions).toEqual([]);
+    });
+  });
+
   describe('when typing into the company input', () => {
     const url = 'https://autocomplete.clearbit.com/v1/companies/suggest?query=:spot'
     const mockSuccessResponse = [
@@ -89,26 +114,6 @@ describe('<FormModal />', () => {
 
       global.fetch.mockClear();
       done();
-    });
-  });
-
-  describe('when clicking the `save` button', () => {
-    it('triggers the `save` callback', () => {
-      formModal.find('.btn-save').simulate('click');
-      expect(mockSave).toHaveBeenCalledTimes(1);
-    });
-
-    it('resets all input values', () => {
-      formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
-      formModal.find('.btn-save').simulate('click');
-      expect(formModal.state().company).toEqual('');
-    });
-  });
-
-  describe('when a suggestion is clicked', () => {
-    it('autofills the input field', () => {
-      formModal.instance().handleSuggestionSelection('Test Company');
-      expect(formModal.find('.input-company').props().value).toEqual('Test Company');
     });
   });
 });

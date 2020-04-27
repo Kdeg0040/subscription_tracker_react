@@ -40,7 +40,10 @@ class FormModal extends Component {
   }
 
   handleSuggestionSelection = (companyName) => {
-    this.setState({ company: companyName })
+    this.setState({ 
+      company: companyName,
+      suggestions: []
+    })
   }
 
   render () {
