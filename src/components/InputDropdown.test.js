@@ -11,13 +11,6 @@ describe('<InputDropdown', () => {
     } 
   };
 
-  const propsWithSuggestions = { 
-    formData: {
-      company: '',
-      suggestions: [{ name: 'test' }]
-    } 
-  }; 
-
   const inputDropdown = shallow(<InputDropdown {...initialProps} />);
 
   it('renders correctly', () => {
@@ -29,6 +22,8 @@ describe('<InputDropdown', () => {
   });
 
   it('renders suggestions', () => {
+    const propsWithSuggestions = initialProps
+    propsWithSuggestions.formData.suggestions.push({ name: 'test' });
     inputDropdown.setProps(propsWithSuggestions);
     expect(inputDropdown.find('.dropdown-item').length).toEqual(1)
 
