@@ -104,4 +104,11 @@ describe('<FormModal />', () => {
       expect(formModal.state().company).toEqual('');
     });
   });
+
+  describe('when a suggestion is clicked', () => {
+    it('autofills the input field', () => {
+      formModal.instance().handleSuggestionSelection('Test Company');
+      expect(formModal.find('.input-company').props().value).toEqual('Test Company');
+    });
+  });
 });

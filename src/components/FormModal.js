@@ -39,6 +39,10 @@ class FormModal extends Component {
     this.setState({ suggestions: data })
   }
 
+  handleSuggestionSelection = (companyName) => {
+    this.setState({ company: companyName })
+  }
+
   render () {
     return (
       <div className={ this.props.show }>
