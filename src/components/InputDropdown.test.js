@@ -4,14 +4,21 @@ import { shallow } from 'enzyme';
 import InputDropdown from './InputDropdown';
 
 describe('<InputDropdown', () => {
-  const initialProps = { 
-    formData: {
-      company: '',
-      suggestions: []
-    } 
-  };
+  let initialProps;
+  let inputDropdown;
+  let mockSelect = jest.fn();
 
-  const inputDropdown = shallow(<InputDropdown {...initialProps} />);
+  beforeEach(() => {
+    initialProps = { 
+      formData: {
+        company: '',
+        suggestions: []
+      },
+      select: mockSelect 
+    };
+
+    inputDropdown = shallow(<InputDropdown {...initialProps} />);
+  })
 
   it('renders correctly', () => {
     expect(inputDropdown).toMatchSnapshot();
@@ -21,11 +28,22 @@ describe('<InputDropdown', () => {
     expect(inputDropdown.find('.dropdown-item').length).toEqual(0)
   });
 
-  it('renders suggestions', () => {
-    const propsWithSuggestions = initialProps
-    propsWithSuggestions.formData.suggestions.push({ name: 'test' });
-    inputDropdown.setProps(propsWithSuggestions);
-    expect(inputDropdown.find('.dropdown-item').length).toEqual(1)
+  describe('when suggestions are passed in', () => {
+    let propsWithSuggestions;
 
+    beforeEach(() => {
+      propsWithSuggestions = initialProps
+      propsWithSuggestions.formData.suggestions.push({ name: 'test' });
+      inputDropdown.setProps(propsWithSuggestions);
+    });
+
+    it('renders suggestions', () => {
+      expect(inputDropdown.find('.dropdown-item').length).toEqual(1)
+    });
+
+    it('triggers `select` callback when clicked', () => {
+      inputDropdown.find('.dropdown-item').simulate('click');
+      expect(mockSelect).toHaveBeenCalledTimes(1);
+    });
   });
 });
