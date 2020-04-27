@@ -62,7 +62,7 @@ class FormModal extends Component {
                 <div className="control">
                   <input className="input-company input" type="text" value={this.state.company} placeholder="e.g. Spotify" onChange={ e => this.handleCompanyInputChange(e.target.value) }></input>
                 </div>
-                <InputDropdown formData={this.state} />
+                <InputDropdown formData={this.state} select={this.handleSuggestionSelection} />
               </div>
             </div>
           </section>
