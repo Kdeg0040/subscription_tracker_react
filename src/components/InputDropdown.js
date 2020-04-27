@@ -9,11 +9,11 @@ class InputDropdown extends Component {
             {
               this.props.formData.suggestions.map((sugg, ind) => {
                 return (
-                  <a href={sugg.domain} className="dropdown-item" key={ind}>
+                  <a href="/#" className="dropdown-item" key={ind}>
                     <div className="level">
                       <div className="level-left">
                         <div className="level-item">
-                          <figure className="image is-rounded is-32x32">
+                          <figure className="image is-32x32">
                             <img src={sugg.logo} alt=""></img>
                           </figure>
                         </div>
