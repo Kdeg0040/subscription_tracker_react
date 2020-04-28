@@ -8,12 +8,12 @@ class Subscription extends Component {
 
         <div className="media-left">
           <p className="image is-64x64">
-            <img src="https://bulma.io/images/placeholders/128x128.png" alt=""></img>
+            <img src={this.props.sub.details.company.logo} alt=""></img>
           </p>
         </div>
 
         <div className="media-content">
-        <h1 className="title">{this.props.sub.details.company}</h1>
+        <h1 className="title">{this.props.sub.details.company.name}</h1>
         <h2 className="subtitle has-text-weight-light is-lowercase">description</h2>
         </div>
 
