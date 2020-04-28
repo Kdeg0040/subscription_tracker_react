@@ -7,7 +7,10 @@ class FormModal extends Component {
     super ();
 
     this.state = {
-      company: '',
+      company: {
+        name: '',
+        logo: ''
+      },
       suggestions: []
     };
 
@@ -25,7 +28,7 @@ class FormModal extends Component {
   }
 
   handleCompanyInputChange = (input) => {
-    this.setState({ company: input })
+    this.setState({ company: {name: input} })
     this.handleSuggestions(input);
   }
 
@@ -39,9 +42,12 @@ class FormModal extends Component {
     this.setState({ suggestions: data })
   }
 
-  handleSuggestionSelection = (companyName) => {
+  handleSuggestionSelection = (selected) => {
     this.setState({ 
-      company: companyName,
+      company: {
+        name: selected.name,
+        logo: selected.logo
+      },
       suggestions: []
     })
   }
@@ -60,7 +66,7 @@ class FormModal extends Component {
               <div className="field">
                 <label className="label has-text-left">Company Name</label>
                 <div className="control">
-                  <input className="input-company input" type="text" value={this.state.company} placeholder="e.g. Spotify" onChange={ e => this.handleCompanyInputChange(e.target.value) }></input>
+                  <input className="input-company input" type="text" value={this.state.company.name} placeholder="e.g. Spotify" onChange={ e => this.handleCompanyInputChange(e.target.value) }></input>
                 </div>
                 <InputDropdown formData={this.state} select={this.handleSuggestionSelection} />
               </div>
