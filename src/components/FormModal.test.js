@@ -23,6 +23,12 @@ describe('<FormModal />', () => {
     expect(formModal.instance().showSuggestions()).toEqual('');
   });
 
+  it('hide suggestions by clicking anywhere on form', () => {
+    formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
+    formModal.find('.modal-card-body').simulate('click');
+    expect(formModal.state().suggestions).toEqual([]);
+  });
+
   describe('when clicking the modal background', () => {
     it('triggers the `hide` callback', () => {
       formModal.find('.modal-background').simulate('click');

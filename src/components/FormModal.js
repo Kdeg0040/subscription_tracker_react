@@ -65,7 +65,7 @@ class FormModal extends Component {
             <p className="modal-card-title">Subscription Details</p>
             <button className="btn-cross delete" aria-label="close" onClick={ () => this.handleCancel() }></button>
           </header>
-          <section className="modal-card-body">
+          <section className="modal-card-body" onClick={() => this.setState({ suggestions: [] })}>
             <div className="form">
 
               <div className="field">
