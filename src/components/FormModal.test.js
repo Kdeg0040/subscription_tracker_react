@@ -28,7 +28,7 @@ describe('<FormModal />', () => {
     it('resets all input values', () => {
       formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
       formModal.find('.modal-background').simulate('click');
-      expect(formModal.state().company).toEqual('');
+      expect(formModal.state().company.name).toEqual('');
     });
   });
 
@@ -41,7 +41,7 @@ describe('<FormModal />', () => {
     it('resets all input values', () => {
       formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
       formModal.find('.btn-cancel').simulate('click');
-      expect(formModal.state().company).toEqual('');
+      expect(formModal.state().company.name).toEqual('');
     });
   });
 
@@ -54,7 +54,7 @@ describe('<FormModal />', () => {
     it('resets all input values', () => {
       formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
       formModal.find('.btn-cross').simulate('click');
-      expect(formModal.state().company).toEqual('');
+      expect(formModal.state().company.name).toEqual('');
     });
   });
 
@@ -67,18 +67,19 @@ describe('<FormModal />', () => {
     it('resets all input values', () => {
       formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
       formModal.find('.btn-save').simulate('click');
-      expect(formModal.state().company).toEqual('');
+      expect(formModal.state().company.name).toEqual('');
     });
   });
 
   describe('when a suggestion is clicked', () => {
+    const selectedSuggestion =  { name: 'Test Company', logo: 'testcompany.url'}
     it('autofills the input field', () => {
-      formModal.instance().handleSuggestionSelection('Test Company');
+      formModal.instance().handleSuggestionSelection(selectedSuggestion);
       expect(formModal.find('.input-company').props().value).toEqual('Test Company');
     });
 
     it('clears suggestions', () => {
-      formModal.instance().handleSuggestionSelection();
+      formModal.instance().handleSuggestionSelection(selectedSuggestion);
       expect(formModal.state().suggestions).toEqual([]);
     });
   });
@@ -100,7 +101,7 @@ describe('<FormModal />', () => {
 
     it('updates the company in `state`', () => {
       formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
-      expect(formModal.state().company).toEqual('Test Company');
+      expect(formModal.state().company.name).toEqual('Test Company');
     });
 
     it('can retrieve company name suggestions', (done) => {
