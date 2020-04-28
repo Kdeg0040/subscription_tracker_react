@@ -19,6 +19,10 @@ describe('<FormModal />', () => {
     expect(formModal).toMatchSnapshot();
   });
 
+  it('initially does not show suggestions', () => {
+    expect(formModal.instance().showSuggestions()).toEqual('');
+  });
+
   describe('when clicking the modal background', () => {
     it('triggers the `hide` callback', () => {
       formModal.find('.modal-background').simulate('click');
@@ -115,6 +119,10 @@ describe('<FormModal />', () => {
 
       global.fetch.mockClear();
       done();
+    });
+
+    it('displays the suggestions', () => {
+      expect(formModal.instance().showSuggestions()).toEqual('is-active')
     });
   });
 });

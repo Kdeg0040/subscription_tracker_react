@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class InputDropdown extends Component {
   render () {
     return (
-      <div className="dropdown is-pulled-left is-active">
+      <div className={"dropdown is-pulled-left " + this.props.show()}>
         <div className="dropdown-menu">
           <div className="dropdown-content"> 
             {

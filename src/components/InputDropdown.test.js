@@ -7,6 +7,7 @@ describe('<InputDropdown', () => {
   let initialProps;
   let inputDropdown;
   let mockSelect = jest.fn();
+  let mockShow = jest.fn();
 
   beforeEach(() => {
     initialProps = { 
@@ -14,7 +15,8 @@ describe('<InputDropdown', () => {
         company: '',
         suggestions: []
       },
-      select: mockSelect 
+      select: mockSelect,
+      show: mockShow 
     };
 
     inputDropdown = shallow(<InputDropdown {...initialProps} />);

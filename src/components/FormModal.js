@@ -52,6 +52,10 @@ class FormModal extends Component {
     })
   }
 
+  showSuggestions = () => {
+    return this.state.suggestions.length > 0 ? 'is-active' : ''
+  }
+
   render () {
     return (
       <div className={ this.props.show }>
@@ -63,13 +67,15 @@ class FormModal extends Component {
           </header>
           <section className="modal-card-body">
             <div className="form">
+
               <div className="field">
                 <label className="label has-text-left">Company Name</label>
                 <div className="control">
                   <input className="input-company input" type="text" value={this.state.company.name} placeholder="e.g. Spotify" onChange={ e => this.handleCompanyInputChange(e.target.value) }></input>
                 </div>
-                <InputDropdown formData={this.state} select={this.handleSuggestionSelection} />
+                <InputDropdown formData={this.state} select={this.handleSuggestionSelection} show={this.showSuggestions} />
               </div>
+
             </div>
           </section>
           <footer className="modal-card-foot">
