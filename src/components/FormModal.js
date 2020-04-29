@@ -9,6 +9,7 @@ class FormModal extends Component {
     this.state = {
       company: {
         name: '',
+        description: 'Test Description',
         logo: ''
       },
       suggestions: []
@@ -74,6 +75,13 @@ class FormModal extends Component {
                   <input className="input-company input" type="text" value={this.state.company.name} placeholder="e.g. Spotify" onChange={ e => this.handleCompanyInputChange(e.target.value) }></input>
                 </div>
                 <InputDropdown formData={this.state} select={this.handleSuggestionSelection} show={this.showSuggestions} />
+              </div>
+
+              <div className="field">
+                <label className="label has-text-left">Description</label>
+                <div className="control">
+                  <input className="input-description input" type="text" value={this.state.company.description} placeholder="e.g. Spotify"></input>
+                </div>
               </div>
 
             </div>

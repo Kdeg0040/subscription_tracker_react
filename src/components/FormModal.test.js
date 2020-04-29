@@ -81,6 +81,13 @@ describe('<FormModal />', () => {
     });
   });
 
+  describe('when typing into description input', () => {
+    it('updates description in `state`', () => {
+      formModal.find('.input-description').simulate('change', { target: { value: 'Test Description' } });
+      expect(formModal.state().company.description).toEqual('Test Description');
+    });
+  });
+
   describe('when a suggestion is clicked', () => {
     const selectedSuggestion =  { name: 'Test Company', logo: 'testcompany.url'}
     it('autofills the input field', () => {
