@@ -8,13 +8,13 @@ class Subscription extends Component {
 
         <div className="media-left">
           <p className="image is-64x64">
-            <img src={this.props.sub.details.company.logo} alt=""></img>
+            <img src={this.props.sub.logo} alt=""></img>
           </p>
         </div>
 
         <div className="media-content">
-        <h1 className="title">{this.props.sub.details.company.name}</h1>
-        <h2 className="subtitle has-text-weight-light is-lowercase">description</h2>
+        <h1 className="title">{this.props.sub.name}</h1>
+        <h2 className="subtitle has-text-weight-light is-lowercase">{this.props.sub.description}</h2>
         </div>
 
         <div className="media-right">

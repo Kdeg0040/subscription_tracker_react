@@ -19,10 +19,10 @@ class Subscriptions extends Component {
     const max_id = ids.length > 0 ? Math.max(...ids) : 0;
     
     subsList.push({ 
-      id: max_id + 1, 
-      details: { 
-        company: {...company}
-      } 
+      id: max_id + 1,
+      name: company.name,
+      description: company.description,
+      logo: company.logo
     });
     this.setState({ subsList });
     this.hideModalHandler();
