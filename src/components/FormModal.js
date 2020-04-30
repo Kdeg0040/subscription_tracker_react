@@ -7,11 +7,9 @@ class FormModal extends Component {
     super ();
 
     this.state = {
-      company: {
-        name: '',
-        description: 'Test Description',
-        logo: ''
-      },
+      name: '',
+      description: 'Test Description',
+      logo: '',
       suggestions: []
     };
 
@@ -29,7 +27,7 @@ class FormModal extends Component {
   }
 
   handleCompanyInputChange = (input) => {
-    this.setState({ company: {name: input} })
+    this.setState({ name: input })
     this.handleSuggestions(input);
   }
 
@@ -45,10 +43,8 @@ class FormModal extends Component {
 
   handleSuggestionSelection = (selected) => {
     this.setState({ 
-      company: {
-        name: selected.name,
-        logo: selected.logo
-      },
+      name: selected.name,
+      logo: selected.logo,
       suggestions: []
     })
   }
@@ -72,7 +68,7 @@ class FormModal extends Component {
               <div className="field">
                 <label className="label has-text-left">Company Name</label>
                 <div className="control">
-                  <input className="input-company input" type="text" value={this.state.company.name} placeholder="e.g. Spotify" onChange={ e => this.handleCompanyInputChange(e.target.value) }></input>
+                  <input className="input-company input" type="text" value={this.state.name} placeholder="e.g. Spotify" onChange={ e => this.handleCompanyInputChange(e.target.value) }></input>
                 </div>
                 <InputDropdown formData={this.state} select={this.handleSuggestionSelection} show={this.showSuggestions} />
               </div>
@@ -80,7 +76,7 @@ class FormModal extends Component {
               <div className="field">
                 <label className="label has-text-left">Description</label>
                 <div className="control">
-                  <input className="input-description input" type="text" value={this.state.company.description} placeholder="e.g. Spotify"></input>
+                  <input className="input-description input" type="text" value={this.state.description} placeholder="e.g. Spotify"></input>
                 </div>
               </div>
 
