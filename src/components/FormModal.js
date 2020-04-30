@@ -8,7 +8,7 @@ class FormModal extends Component {
 
     this.state = {
       name: '',
-      description: 'Test Description',
+      description: '',
       logo: '',
       suggestions: []
     };
@@ -76,7 +76,7 @@ class FormModal extends Component {
               <div className="field">
                 <label className="label has-text-left">Description</label>
                 <div className="control">
-                  <input className="input-description input" type="text" value={this.state.description} placeholder="e.g. Spotify"></input>
+                  <input className="input-description input" type="text" value={this.state.description} placeholder="e.g. Music Streaming" onChange={ e => this.setState({ description: e.target.value })}></input>
                 </div>
               </div>
 
