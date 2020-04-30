@@ -83,7 +83,7 @@ class FormModal extends Component {
             </div>
           </section>
           <footer className="modal-card-foot">
-            <button className="btn-save button is-success" onClick={ () => this.handleSubmit(this.state.company) }>Save</button>
+            <button className="btn-save button is-success" onClick={ () => this.handleSubmit(this.state) }>Save</button>
             <button className="btn-cancel button" onClick={ () => this.handleCancel() } >Cancel</button>
           </footer>
         </div>

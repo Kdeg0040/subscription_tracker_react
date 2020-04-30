@@ -35,10 +35,17 @@ describe('<Subscriptions />', () => {
     })
 
     describe('and the user wants to save the subscription', () => {
+      let testCompany = { 
+        id: 1, 
+        name: 'Test Company', 
+        description: 'Test Description',
+        logo: 'LogoURL' 
+      }
+
       it('adds a new `Subscription` to state', () => {
-        subscriptions.instance().addSub();
+        subscriptions.instance().addSub(testCompany);
         expect(subscriptions.state().subsList.length).toEqual(1);
-        subscriptions.instance().addSub();
+        subscriptions.instance().addSub(testCompany);
         expect(subscriptions.state().subsList.length).toEqual(2);
       })
     });
