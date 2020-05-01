@@ -1,7 +1,7 @@
 import React from 'react';
 
 const layout = (props) => (
-  <div className="column is-three-fifths is-offset-one-fifth has-text-centered">
+  <div className="column is-three-fifths-widescreen is-offset-one-fifth-widescreen has-text-centered">
     {props.children}
   </div>
 );
