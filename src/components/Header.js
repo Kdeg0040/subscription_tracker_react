@@ -1,7 +1,7 @@
 import React from 'react';
 
 const header = (props) => (
-  <div className="section is-full-width">
+  <div className="section is-full-width has-text-centered is-paddingless">
     <div className="hero is-info is-bold">
       <div className="hero-body">
         <div className="container">
