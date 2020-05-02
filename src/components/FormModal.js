@@ -106,7 +106,7 @@ class FormModal extends Component {
                       </select>
                     </span>
                     <span className="icon is-small is-left">
-                      <i className="fas fa-globe"></i>
+                      <i className="fas fa-redo-alt"></i>
                     </span>
                 </div>
               </div>
