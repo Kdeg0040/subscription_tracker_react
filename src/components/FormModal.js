@@ -86,13 +86,28 @@ class FormModal extends Component {
                 </div>
               </div>
 
-              <div className="field">
-                <label className="label has-text-left">Payment Date</label>
+
+              <label className="label has-text-left">Payment Date</label>
+              <div className="field has-addons">
                 <div className="control is-expanded has-icons-left">
                   <input className="input-date input" type="text" placeholder="dd/mm/yyyy"></input>
                   <span className="icon is-small is-left">
                     <i className="fas fa-calendar-alt"></i>
                   </span>
+                </div>
+
+                <div className="control has-icons-left">
+                  <span className="select">
+                      <select>
+                        <option>Daily</option>
+                        <option>Fortnightly</option>
+                        <option selected>Monthly</option>
+                        <option>Annually</option>
+                      </select>
+                    </span>
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-globe"></i>
+                    </span>
                 </div>
               </div>
 
