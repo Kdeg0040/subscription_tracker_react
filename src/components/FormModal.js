@@ -67,16 +67,22 @@ class FormModal extends Component {
 
               <div className="field">
                 <label className="label has-text-left">Company Name</label>
-                <div className="control">
+                <div className="control is-expanded has-icons-left">
                   <input className="input-company input" type="text" value={this.state.name} placeholder="e.g. Spotify" onChange={ e => this.handleCompanyInputChange(e.target.value) }></input>
+                  <span className="icon is-small is-left">
+                    <i className="fas fa-search"></i>
+                  </span>
                 </div>
                 <InputDropdown formData={this.state} select={this.handleSuggestionSelection} show={this.showSuggestions} />
               </div>
 
               <div className="field">
                 <label className="label has-text-left">Description</label>
-                <div className="control">
+                <div className="control is-expanded has-icons-left">
                   <input className="input-description input" type="text" value={this.state.description} placeholder="e.g. Music Streaming" onChange={ e => this.setState({ description: e.target.value })}></input>
+                  <span className="icon is-small is-left">
+                    <i className="fas fa-list"></i>
+                  </span>
                 </div>
               </div>
 
