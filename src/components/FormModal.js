@@ -86,6 +86,16 @@ class FormModal extends Component {
                 </div>
               </div>
 
+              <div className="field">
+                <label className="label has-text-left">Payment Date</label>
+                <div className="control is-expanded has-icons-left">
+                  <input className="input-date input" type="text" placeholder="dd/mm/yyyy"></input>
+                  <span className="icon is-small is-left">
+                    <i className="fas fa-calendar-alt"></i>
+                  </span>
+                </div>
+              </div>
+
             </div>
           </section>
           <footer className="modal-card-foot">
