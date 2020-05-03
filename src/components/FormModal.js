@@ -9,6 +9,7 @@ class FormModal extends Component {
     this.state = {
       name: '',
       description: '',
+      paymentDate: '',
       logo: '',
       suggestions: []
     };
@@ -90,7 +91,7 @@ class FormModal extends Component {
               <label className="label has-text-left">Payment Date</label>
               <div className="field has-addons">
                 <div className="control is-expanded has-icons-left">
-                  <input className="input-date input" type="text" placeholder="dd/mm/yyyy"></input>
+                  <input className="input-payment-date input" type="text" value={this.state.paymentDate} placeholder="dd/mm/yyyy" onChange={ e => this.setState({ paymentDate: e.target.value })}></input>
                   <span className="icon is-small is-left">
                     <i className="fas fa-calendar-alt"></i>
                   </span>

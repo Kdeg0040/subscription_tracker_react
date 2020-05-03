@@ -88,6 +88,12 @@ describe('<FormModal />', () => {
     });
   });
   
+  describe('when typing into payment date input', () => {
+    it('updates payment date in `state`', () => {
+      formModal.find('.input-payment-date').simulate('change', { target: { value: '31/12/2020' } });
+      expect(formModal.state().paymentDate).toEqual('31/12/2020');
+    });
+  });
 
   describe('when a suggestion is clicked', () => {
     const selectedSuggestion =  { name: 'Test Company', logo: 'testcompany.url'}
