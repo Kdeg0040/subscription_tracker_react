@@ -99,16 +99,16 @@ class FormModal extends Component {
 
                 <div className="control has-icons-left">
                   <span className="select">
-                      <select>
-                        <option>Daily</option>
-                        <option>Fortnightly</option>
-                        <option selected>Monthly</option>
-                        <option>Annually</option>
-                      </select>
-                    </span>
-                    <span className="icon is-small is-left">
-                      <i className="fas fa-redo-alt"></i>
-                    </span>
+                    <select>
+                      <option>Daily</option>
+                      <option>Fortnightly</option>
+                      <option>Monthly</option>
+                      <option>Annually</option>
+                    </select>
+                  </span>
+                  <span className="icon is-small is-left">
+                    <i className="fas fa-redo-alt"></i>
+                  </span>
                 </div>
               </div>
 

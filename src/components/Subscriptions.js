@@ -22,6 +22,7 @@ class Subscriptions extends Component {
       id: max_id + 1,
       name: company.name,
       description: company.description,
+      paymentDate: company.paymentDate,
       logo: company.logo
     });
     this.setState({ subsList });
