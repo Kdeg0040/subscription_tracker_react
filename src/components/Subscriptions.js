@@ -23,6 +23,8 @@ class Subscriptions extends Component {
       name: company.name,
       description: company.description,
       paymentDate: company.paymentDate,
+      frequency: company.frequency,
+      cost: company.cost,
       logo: company.logo
     });
     this.setState({ subsList });

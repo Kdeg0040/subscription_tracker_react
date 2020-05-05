@@ -25,7 +25,7 @@ class Subscription extends Component {
             </div>
 
             <div className="column has-text-right">
-              <h1 className="title is-size-1">£9</h1>
+              <h1 className="title is-size-1">£{this.props.sub.cost}</h1>
             </div>
           </div>
         </div>
