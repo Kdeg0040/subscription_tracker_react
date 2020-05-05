@@ -124,7 +124,7 @@ class FormModal extends Component {
                   </span>
                 </p>
                 <p className="control">
-                  <input className="input" type="text" placeholder="Amount of money"></input>
+                  <input className="input-cost input" value={this.state.cost} type="text" placeholder="Amount of money" onChange={ e => this.setState({ cost: e.target.value }) }></input>
                 </p>
               </div>
 

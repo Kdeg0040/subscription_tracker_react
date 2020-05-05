@@ -95,6 +95,13 @@ describe('<FormModal />', () => {
     });
   });
 
+  describe('when typing into cost input', () => {
+    it('updates cost in `state`', () => {
+      formModal.find('.input-cost').simulate('change', { target: { value: '10.00' } });
+      expect(formModal.state().cost).toEqual('10.00');
+    });
+  });
+
   describe('when selecting a payment frequency', () => {
     it('updates the frequency in `state`', () => {
       formModal.find('.frequency-input').simulate('change', { target: { value: 'Annually' } });
