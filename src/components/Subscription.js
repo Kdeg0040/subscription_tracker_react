@@ -13,8 +13,21 @@ class Subscription extends Component {
         </div>
 
         <div className="media-content">
-        <h1 className="title">{this.props.sub.name}</h1>
-        <h2 className="subtitle has-text-weight-light is-lowercase">{this.props.sub.description}</h2>
+          <div className="columns is-flex-mobile">
+            <div className="column has-text-left">
+              <h1 className="title">{this.props.sub.name}</h1>
+              <h2 className="subtitle has-text-weight-light is-lowercase">{this.props.sub.description}</h2>
+            </div>
+
+            <div className="column has-text-centered is-hidden-mobile">
+              <h1 className="title">25 May</h1>
+              <h2 className="subtitle has-text-weight-light is-lowercase">in 20 days</h2>
+            </div>
+
+            <div className="column has-text-right">
+              <h1 className="title is-size-1">£9</h1>
+            </div>
+          </div>
         </div>
 
         <div className="media-right">
