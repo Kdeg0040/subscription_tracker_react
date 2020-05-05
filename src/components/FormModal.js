@@ -10,6 +10,7 @@ class FormModal extends Component {
       name: '',
       description: '',
       paymentDate: '',
+      frequency: 'Monthly',
       logo: '',
       suggestions: []
     };
@@ -99,11 +100,12 @@ class FormModal extends Component {
 
                 <div className="control has-icons-left">
                   <span className="select">
-                    <select>
-                      <option>Daily</option>
-                      <option>Fortnightly</option>
-                      <option>Monthly</option>
-                      <option>Annually</option>
+                    <select className="frequency-input" value={this.state.frequency} onChange={ e => this.setState({ frequency: e.target.value })}>
+                      <option value="Daily">Daily</option>
+                      <option value="Weekly">Weekly</option>
+                      <option value="Fortnightly">Fortnightly</option>
+                      <option value="Monthly">Monthly</option>
+                      <option value="Annually">Annually</option>
                     </select>
                   </span>
                   <span className="icon is-small is-left">

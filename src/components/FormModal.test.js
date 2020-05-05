@@ -95,6 +95,13 @@ describe('<FormModal />', () => {
     });
   });
 
+  describe('when selecting a payment frequency', () => {
+    it('updates the frequency in `state`', () => {
+      formModal.find('.frequency-input').simulate('change', { target: { value: 'Annually' } });
+      expect(formModal.state().frequency).toEqual('Annually');
+    });
+  });
+
   describe('when a suggestion is clicked', () => {
     const selectedSuggestion =  { name: 'Test Company', logo: 'testcompany.url'}
     it('autofills the input field', () => {
