@@ -11,6 +11,7 @@ class FormModal extends Component {
       description: '',
       paymentDate: '',
       frequency: 'Monthly',
+      cost: '',
       logo: '',
       suggestions: []
     };
@@ -88,7 +89,6 @@ class FormModal extends Component {
                 </div>
               </div>
 
-
               <label className="label has-text-left">Payment Date</label>
               <div className="field has-addons">
                 <div className="control is-expanded has-icons-left">
@@ -112,6 +112,20 @@ class FormModal extends Component {
                     <i className="fas fa-redo-alt"></i>
                   </span>
                 </div>
+              </div>
+
+              <label className="label has-text-left">Cost</label>
+              <div className="field has-addons">
+                <p className="control">
+                  <span className="select">
+                    <select>
+                      <option>£</option>
+                    </select>
+                  </span>
+                </p>
+                <p className="control">
+                  <input className="input" type="text" placeholder="Amount of money"></input>
+                </p>
               </div>
 
             </div>
