@@ -119,7 +119,9 @@ class FormModal extends Component {
                 <p className="control">
                   <span className="select">
                     <select>
-                      <option>£</option>
+                    <option>£</option>
+                    <option>$</option>
+                    <option>€</option>
                     </select>
                   </span>
                 </p>
