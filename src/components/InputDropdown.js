@@ -10,7 +10,7 @@ class InputDropdown extends Component {
               this.props.formData.suggestions.map((sugg, ind) => {
                 return (
                   <a href="/#" onClick={() => this.props.select(sugg)} className="dropdown-item" key={ind}>
-                    <div className="level">
+                    <div className="level is-mobile">
                       <div className="level-left">
                         <div className="level-item">
                           <figure className="image is-32x32">
