@@ -12,7 +12,7 @@ class Subscription extends Component {
           </p>
         </div>
 
-        <div className="media-content">
+        <div className="media-content is-clipped">
           <div className="columns is-flex-mobile">
             <div className="column has-text-left">
               <h1 className="title">{this.props.sub.name}</h1>
