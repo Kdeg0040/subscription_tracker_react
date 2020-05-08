@@ -18,15 +18,7 @@ class Subscriptions extends Component {
     const ids = this.state.subsList.map(sub => sub.id);
     const max_id = ids.length > 0 ? Math.max(...ids) : 0;
     
-    subsList.push({ 
-      id: max_id + 1,
-      name: company.name,
-      description: company.description,
-      paymentDate: company.paymentDate,
-      frequency: company.frequency,
-      cost: company.cost,
-      logo: company.logo
-    });
+    subsList.push({ id: max_id + 1, ...company });
     this.setState({ subsList });
     this.hideModalHandler();
   }
