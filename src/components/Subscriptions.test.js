@@ -39,6 +39,7 @@ describe('<Subscriptions />', () => {
         id: 1, 
         name: 'Test Company', 
         description: 'Test Description',
+        paymentDate: '01/01/2000',
         logo: 'LogoURL' 
       }
 

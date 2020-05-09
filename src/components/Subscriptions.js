@@ -15,8 +15,14 @@ class Subscriptions extends Component {
 
   addSub = company => {
     const { subsList } = this.state;
+    const formData = {...company};
+
     const ids = this.state.subsList.map(sub => sub.id);
     const max_id = ids.length > 0 ? Math.max(...ids) : 0;
+
+    const dateString = formData.paymentDate.split('/').reverse().join('/');
+    const dateObject = new Date(dateString);
+    formData.paymentDate = dateObject;
     
     subsList.push({ id: max_id + 1, ...company });
     this.setState({ subsList });
@@ -25,7 +31,7 @@ class Subscriptions extends Component {
 
   deleteSub = id => {
     const subsList = this.state.subsList.filter(sub => sub.id !== id);
-    this.setState({ subsList })
+    this.setState({ subsList });
   }
 
   showModalHandler = () => {
