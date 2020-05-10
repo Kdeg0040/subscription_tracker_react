@@ -32,23 +32,38 @@ describe('<Subscriptions />', () => {
         subscriptions.instance().hideModalHandler();
         expect(subscriptions.state().showModal).toEqual(false);
       });
-    })
+    });
 
     describe('and the user wants to save the subscription', () => {
-      let testCompany = { 
+      let testCompany1 = { 
         id: 1, 
         name: 'Test Company', 
         description: 'Test Description',
         paymentDate: '01/01/2000',
         logo: 'LogoURL' 
-      }
+      };
+
+      let testCompany2 = { 
+        id: 2, 
+        name: 'Test Company2', 
+        description: 'Test Description',
+        paymentDate: '02/01/2000',
+        logo: 'LogoURL' 
+      };
 
       it('adds a new `Subscription` to state', () => {
-        subscriptions.instance().addSub(testCompany);
+        subscriptions.instance().addSub(testCompany1);
         expect(subscriptions.state().subsList.length).toEqual(1);
-        subscriptions.instance().addSub(testCompany);
+        subscriptions.instance().addSub(testCompany2);
         expect(subscriptions.state().subsList.length).toEqual(2);
-      })
+        subscriptions.instance().setState({ subsList: [] });
+      });
+
+      it('sorts Subscriptions by date', () => {
+        subscriptions.instance().addSub(testCompany2);
+        subscriptions.instance().addSub(testCompany1);
+        expect(subscriptions.state().subsList[0].paymentDate).toEqual('01/01/2000')
+      });
     });
   });
 
