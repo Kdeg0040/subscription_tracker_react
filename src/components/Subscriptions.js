@@ -24,7 +24,7 @@ class Subscriptions extends Component {
     const dateObject = new Date(dateString);
     formData.paymentDate = dateObject;
     
-    subsList.push({ id: max_id + 1, ...company });
+    subsList.push({ id: max_id + 1, ...formData });
     this.setState({ subsList });
     this.sortSubs();
     this.hideModalHandler();

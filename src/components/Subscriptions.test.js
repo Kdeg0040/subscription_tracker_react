@@ -60,9 +60,10 @@ describe('<Subscriptions />', () => {
       });
 
       it('sorts Subscriptions by date', () => {
+        const testDate = new Date(testCompany1.paymentDate)
         subscriptions.instance().addSub(testCompany2);
         subscriptions.instance().addSub(testCompany1);
-        expect(subscriptions.state().subsList[0].paymentDate).toEqual('01/01/2000')
+        expect(subscriptions.state().subsList[0].paymentDate).toEqual(testDate)
       });
     });
   });

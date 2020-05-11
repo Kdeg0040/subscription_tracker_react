@@ -6,7 +6,7 @@ import Subscription from './Subscription';
 describe('<Subscription />', () => {
   const mockDelete = jest.fn();
   const props = {
-    sub: { id: 1, details: { company: 'Test Company' } },
+    sub: { id: 1, name: 'Test Company', paymentDate: new Date('01/01/2000') },
     delete: mockDelete
   }
   const subscription = shallow(<Subscription {...props}/>);
