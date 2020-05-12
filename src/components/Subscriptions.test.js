@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import moment from 'moment';
 
 import Subscriptions from './Subscriptions';
 
@@ -60,10 +61,10 @@ describe('<Subscriptions />', () => {
       });
 
       it('sorts Subscriptions by date', () => {
-        const testDate = new Date(testCompany1.paymentDate)
+        const testDate = moment(testCompany1.paymentDate, 'DDMMYYYY')
         subscriptions.instance().addSub(testCompany2);
         subscriptions.instance().addSub(testCompany1);
-        expect(subscriptions.state().subsList[0].paymentDate).toEqual(testDate)
+        expect(subscriptions.state().subsList[0].paymentDate.isSame(testDate)).toEqual(true)
       });
     });
   });
