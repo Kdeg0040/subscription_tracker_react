@@ -21,7 +21,7 @@ class Subscription extends Component {
 
             <div className="column has-text-centered is-hidden-mobile">
               <h1 className="title is-size-4">Next payment</h1>
-              <h2 className="subtitle has-text-weight-light">{this.props.sub.paymentDate.toDateString()}</h2>
+              <h2 className="subtitle has-text-weight-light">{this.props.sub.paymentDate.format("MMM Do")} - {this.props.sub.paymentDate.fromNow()}</h2>
             </div>
 
             <div className="column has-text-right">

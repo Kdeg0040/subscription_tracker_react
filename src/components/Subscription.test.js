@@ -1,12 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import moment from 'moment'
 
 import Subscription from './Subscription';
 
 describe('<Subscription />', () => {
   const mockDelete = jest.fn();
   const props = {
-    sub: { id: 1, name: 'Test Company', paymentDate: new Date('01/01/2000') },
+    sub: { id: 1, name: 'Test Company', paymentDate: moment('01/01/2000', 'DDMMYYYY') },
     delete: mockDelete
   }
   const subscription = shallow(<Subscription {...props}/>);
