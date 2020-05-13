@@ -20,8 +20,20 @@ class FormModal extends Component {
   }
 
   handleSubmit = (formData) => {
-    this.props.save(formData);
-    this.setState(this.initialState);
+    if (this.isFormValid()) {
+      this.props.save(formData);
+      this.setState(this.initialState);
+    } else {
+      alert('Name is required')
+    }
+  }
+
+  isFormValid = () => {
+    if (this.state.name.length === 0 || !this.state.name.trim()) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   handleCancel = () => {

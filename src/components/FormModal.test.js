@@ -70,6 +70,7 @@ describe('<FormModal />', () => {
 
   describe('when clicking the `save` button', () => {
     it('triggers the `save` callback', () => {
+      formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
       formModal.find('.btn-save').simulate('click');
       expect(mockSave).toHaveBeenCalledTimes(1);
     });
@@ -78,6 +79,12 @@ describe('<FormModal />', () => {
       formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
       formModal.find('.btn-save').simulate('click');
       expect(formModal.state().name).toEqual('');
+    });
+
+    it('displays error if no name is provided', () => {
+      window.alert = jest.fn();
+      formModal.find('.btn-save').simulate('click');
+      expect(mockSave).toHaveBeenCalledTimes(0);
     });
   });
 
