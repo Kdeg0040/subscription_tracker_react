@@ -84,7 +84,7 @@ class FormModal extends Component {
               <div className="field">
                 <label className="label has-text-left">Company Name</label>
                 <div className="control is-expanded has-icons-left">
-                  <input className="input-company input" type="text" value={this.state.name} placeholder="e.g. Spotify" onChange={ e => this.handleCompanyInputChange(e.target.value) }></input>
+                  <input className={"input-company input" + (this.state.nameError ? ' is-danger' : '') } type="text" value={this.state.name} placeholder="e.g. Spotify" onChange={ e => this.handleCompanyInputChange(e.target.value) }></input>
                   <span className="icon is-small is-left">
                     <i className="fas fa-search"></i>
                   </span>
