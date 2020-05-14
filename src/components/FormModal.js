@@ -13,7 +13,8 @@ class FormModal extends Component {
       frequency: 'Monthly',
       cost: '',
       logo: '',
-      suggestions: []
+      suggestions: [],
+      nameError: ''
     };
 
     this.initialState = this.state;
@@ -23,15 +24,15 @@ class FormModal extends Component {
     if (this.isFormValid()) {
       this.props.save(formData);
       this.setState(this.initialState);
-    } else {
-      alert('Name is required')
     }
   }
 
   isFormValid = () => {
     if (this.state.name.length === 0 || !this.state.name.trim()) {
+      this.setState({ nameError: 'Name is required' });
       return false;
     } else {
+      this.setState({ nameError: '' });
       return true;
     }
   }
@@ -87,6 +88,7 @@ class FormModal extends Component {
                   <span className="icon is-small is-left">
                     <i className="fas fa-search"></i>
                   </span>
+                  <p className="help is-danger">{this.state.nameError}</p>
                 </div>
                 <InputDropdown formData={this.state} select={this.handleSuggestionSelection} show={this.showSuggestions} />
               </div>
