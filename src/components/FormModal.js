@@ -37,8 +37,11 @@ class FormModal extends Component {
       this.setState({ nameError: '' });
     }
 
-    if (this.state.cost.length === 0) {
+    if (this.state.cost.length === 0 || !this.state.cost.trim()) {
       this.setState({ costError: 'Cost is required' });
+      valid = false;
+    } else if (isNaN(this.state.cost)) {
+      this.setState({ costError: 'Cost must be a number' });
       valid = false;
     } else {
       this.setState({ costError: '' });
