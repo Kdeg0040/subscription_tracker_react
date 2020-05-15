@@ -15,6 +15,7 @@ class FormModal extends Component {
       logo: '',
       suggestions: [],
       nameError: '',
+      dateError: '',
       costError: ''
     };
 
@@ -45,6 +46,13 @@ class FormModal extends Component {
       valid = false;
     } else {
       this.setState({ costError: '' });
+    }
+
+    if (this.state.paymentDate.length === 0 || !this.state.paymentDate.trim()) {
+      this.setState({ dateError: 'Date is required' });
+      valid = false;
+    } else {
+      this.setState({ dateError: '' });
     }
 
     return valid;
@@ -119,10 +127,11 @@ class FormModal extends Component {
               <label className="label has-text-left">Payment Date</label>
               <div className="field has-addons">
                 <div className="control is-expanded has-icons-left">
-                  <input className="input-payment-date input" type="text" value={this.state.paymentDate} placeholder="dd/mm/yyyy" onChange={ e => this.setState({ paymentDate: e.target.value })}></input>
+                  <input className={"input-payment-date input" + (this.state.dateError ? ' is-danger' : '')} type="text" value={this.state.paymentDate} placeholder="dd/mm/yyyy" onChange={ e => this.setState({ paymentDate: e.target.value })}></input>
                   <span className="icon is-small is-left">
                     <i className="fas fa-calendar-alt"></i>
                   </span>
+                  <p className="help is-danger">{this.state.dateError}</p>
                 </div>
 
                 <div className="control has-icons-left">

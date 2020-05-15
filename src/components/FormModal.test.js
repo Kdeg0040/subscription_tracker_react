@@ -71,6 +71,7 @@ describe('<FormModal />', () => {
   describe('when clicking the `save` button', () => {
     it('triggers the `save` callback', () => {
       formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
+      formModal.find('.input-payment-date').simulate('change', { target: { value: '01/01/2000' } });
       formModal.find('.input-cost').simulate('change', { target: { value: '5.00' } });
       formModal.find('.btn-save').simulate('click');
       expect(mockSave).toHaveBeenCalledTimes(1);
@@ -78,6 +79,7 @@ describe('<FormModal />', () => {
 
     it('resets all input values', () => {
       formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
+      formModal.find('.input-payment-date').simulate('change', { target: { value: '01/01/2000' } });
       formModal.find('.input-cost').simulate('change', { target: { value: '5.00' } });
       formModal.find('.btn-save').simulate('click');
       expect(formModal.state().name).toEqual('');
