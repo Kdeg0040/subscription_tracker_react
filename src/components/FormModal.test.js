@@ -71,12 +71,16 @@ describe('<FormModal />', () => {
   describe('when clicking the `save` button', () => {
     it('triggers the `save` callback', () => {
       formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
+      formModal.find('.input-payment-date').simulate('change', { target: { value: '01/01/2000' } });
+      formModal.find('.input-cost').simulate('change', { target: { value: '5.00' } });
       formModal.find('.btn-save').simulate('click');
       expect(mockSave).toHaveBeenCalledTimes(1);
     });
 
     it('resets all input values', () => {
       formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
+      formModal.find('.input-payment-date').simulate('change', { target: { value: '01/01/2000' } });
+      formModal.find('.input-cost').simulate('change', { target: { value: '5.00' } });
       formModal.find('.btn-save').simulate('click');
       expect(formModal.state().name).toEqual('');
     });
@@ -103,6 +107,17 @@ describe('<FormModal />', () => {
   });
 
   describe('when typing into cost input', () => {
+    it('displays error if no input given', () => {
+      formModal.find('.btn-save').simulate('click');
+      expect(formModal.state().costError).not.toEqual('');
+    });
+
+    it('displays error if cost is not a number', () => {
+      formModal.find('.input-cost').simulate('change', { target: { value: 'NaN' } });
+      formModal.find('.btn-save').simulate('click');
+      expect(formModal.state().costError).toEqual('Cost must be a number');
+    });
+
     it('updates cost in `state`', () => {
       formModal.find('.input-cost').simulate('change', { target: { value: '10.00' } });
       expect(formModal.state().cost).toEqual('10.00');

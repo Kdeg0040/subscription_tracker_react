@@ -14,7 +14,9 @@ class FormModal extends Component {
       cost: '',
       logo: '',
       suggestions: [],
-      nameError: ''
+      nameError: '',
+      dateError: '',
+      costError: ''
     };
 
     this.initialState = this.state;
@@ -28,13 +30,32 @@ class FormModal extends Component {
   }
 
   isFormValid = () => {
+    let valid = true;
     if (this.state.name.length === 0 || !this.state.name.trim()) {
       this.setState({ nameError: 'Name is required' });
-      return false;
+      valid = false;
     } else {
       this.setState({ nameError: '' });
-      return true;
     }
+
+    if (this.state.cost.length === 0 || !this.state.cost.trim()) {
+      this.setState({ costError: 'Cost is required' });
+      valid = false;
+    } else if (isNaN(this.state.cost)) {
+      this.setState({ costError: 'Cost must be a number' });
+      valid = false;
+    } else {
+      this.setState({ costError: '' });
+    }
+
+    if (this.state.paymentDate.length === 0 || !this.state.paymentDate.trim()) {
+      this.setState({ dateError: 'Date is required' });
+      valid = false;
+    } else {
+      this.setState({ dateError: '' });
+    }
+
+    return valid;
   }
 
   handleCancel = () => {
@@ -106,10 +127,11 @@ class FormModal extends Component {
               <label className="label has-text-left">Payment Date</label>
               <div className="field has-addons">
                 <div className="control is-expanded has-icons-left">
-                  <input className="input-payment-date input" type="text" value={this.state.paymentDate} placeholder="dd/mm/yyyy" onChange={ e => this.setState({ paymentDate: e.target.value })}></input>
+                  <input className={"input-payment-date input" + (this.state.dateError ? ' is-danger' : '')} type="text" value={this.state.paymentDate} placeholder="dd/mm/yyyy" onChange={ e => this.setState({ paymentDate: e.target.value })}></input>
                   <span className="icon is-small is-left">
                     <i className="fas fa-calendar-alt"></i>
                   </span>
+                  <p className="help is-danger">{this.state.dateError}</p>
                 </div>
 
                 <div className="control has-icons-left">
@@ -139,11 +161,11 @@ class FormModal extends Component {
                     </select>
                   </span>
                 </p>
-                <p className="control">
-                  <input className="input-cost input" value={this.state.cost} type="text" placeholder="Amount of money" onChange={ e => this.setState({ cost: e.target.value }) }></input>
-                </p>
+                <div className="control">
+                  <input className={"input-cost input" + (this.state.costError ? ' is-danger' : '') } value={this.state.cost} type="text" placeholder="Amount of money" onChange={ e => this.setState({ cost: e.target.value }) }></input>
+                  <p className="help is-danger">{this.state.costError}</p>
+                </div>
               </div>
-
             </div>
           </section>
           <footer className="modal-card-foot">
