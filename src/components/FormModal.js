@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 import InputDropdown from './InputDropdown';
 
@@ -31,6 +32,9 @@ class FormModal extends Component {
 
   isFormValid = () => {
     let valid = true;
+    const paymentDateString = this.state.paymentDate.split('/').join('');
+    const paymentDateObject = moment(paymentDateString, 'DDMMYYYY');
+
     if (this.state.name.length === 0 || !this.state.name.trim()) {
       this.setState({ nameError: 'Name is required' });
       valid = false;
@@ -50,6 +54,9 @@ class FormModal extends Component {
 
     if (this.state.paymentDate.length === 0 || !this.state.paymentDate.trim()) {
       this.setState({ dateError: 'Date is required' });
+      valid = false;
+    } else if (!paymentDateObject.isValid()) {
+      this.setState({ dateError: 'Invalid date (must be: dd/mm/yyyy)'});
       valid = false;
     } else {
       this.setState({ dateError: '' });

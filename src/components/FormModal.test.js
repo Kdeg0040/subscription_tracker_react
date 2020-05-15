@@ -90,6 +90,13 @@ describe('<FormModal />', () => {
       formModal.find('.btn-save').simulate('click');
       expect(mockSave).toHaveBeenCalledTimes(0);
     });
+
+    it('displays error if date format is incorrect', () => {
+      const invalidDateString = '20/20/2020';
+      formModal.find('.input-payment-date').simulate('change', { target: { value: invalidDateString } });
+      formModal.find('.btn-save').simulate('click');
+      expect(formModal.state().dateError).not.toEqual('');
+    });
   });
 
   describe('when typing into description input', () => {
