@@ -21,6 +21,9 @@ class Subscriptions extends Component {
     const ids = this.state.subsList.map(sub => sub.id);
     const max_id = ids.length > 0 ? Math.max(...ids) : 0;
 
+    const numToFloat = (Math.round(formData.cost * 100) / 100).toFixed(2);
+    formData.cost = numToFloat;
+
     const dateString = formData.paymentDate.split('/').join('');
     const dateObject = moment(dateString, 'DDMMYYYY');
     formData.paymentDate = dateObject;
