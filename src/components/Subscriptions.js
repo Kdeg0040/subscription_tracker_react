@@ -10,6 +10,7 @@ class Subscriptions extends Component {
 
     this.state = {
       subsList: [],
+      sortBy: 'paymentDate',
       showModal: false
     };
   }
@@ -30,7 +31,7 @@ class Subscriptions extends Component {
     
     subsList.push({ id: max_id + 1, ...formData });
     this.setState({ subsList });
-    this.sortSubs('paymentDate');
+    this.sortSubs(this.state.sortBy);
     this.hideModalHandler();
   }
 
