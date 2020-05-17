@@ -30,12 +30,12 @@ class Subscriptions extends Component {
     
     subsList.push({ id: max_id + 1, ...formData });
     this.setState({ subsList });
-    this.sortSubs();
+    this.sortSubs('paymentDate');
     this.hideModalHandler();
   }
 
-  sortSubs = () => {
-    this.state.subsList.sort((a, b) => (a.paymentDate > b.paymentDate) ? 1 : -1)
+  sortSubs = (attr) => {
+    this.state.subsList.sort((a, b) => (a[attr] > b[attr]) ? 1 : -1)
   }
 
   deleteSub = id => {
