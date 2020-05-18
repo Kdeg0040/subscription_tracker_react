@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class Subscription extends Component {
   render () {
     return (
-      <>
       <div className="box has-background-grey-lighter">
         <div className="media">
 
@@ -47,8 +46,6 @@ class Subscription extends Component {
 
         </div>
       </div>
-      </>
-    
     );
   }
 }
