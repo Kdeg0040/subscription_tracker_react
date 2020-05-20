@@ -40,8 +40,13 @@ class Subscriptions extends Component {
   }
 
   deleteSub = id => {
-    const subsList = this.state.subsList.filter(sub => sub.id !== id);
-    this.setState({ subsList });
+    const toDelete = this.state.subsList.filter(sub => sub.id === id);
+    let makeSure = window.confirm('Are you sure you want to delete ' + toDelete[0].name + ' ?');
+    
+    if (makeSure) {
+      const subsList = this.state.subsList.filter(sub => sub.id !== id);
+      this.setState({ subsList });
+    }
   }
 
   showModalHandler = () => {
