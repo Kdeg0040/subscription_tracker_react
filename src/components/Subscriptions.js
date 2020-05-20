@@ -41,7 +41,7 @@ class Subscriptions extends Component {
 
   deleteSub = id => {
     const toDelete = this.state.subsList.filter(sub => sub.id === id);
-    let makeSure = window.confirm('Are you sure you want to delete ' + toDelete[0].name + ' ?');
+    let makeSure = window.confirm('Are you sure you want to delete ' + toDelete[0].name + '?');
     
     if (makeSure) {
       const subsList = this.state.subsList.filter(sub => sub.id !== id);
