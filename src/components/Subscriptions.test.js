@@ -77,15 +77,13 @@ describe('<Subscriptions />', () => {
     });
 
     it('removes the subscription from state if user confirms', () => {
-      global.confirm = () => true;
-      subscriptions.instance().deleteSub(1);
-      expect(subscriptions.state().subsList.length).toEqual(0);
-    });
-
-    it('does not remove the subscription from state if user denies', () => {
       global.confirm = () => false;
       subscriptions.instance().deleteSub(1);
       expect(subscriptions.state().subsList.length).toEqual(1);
+      
+      global.confirm = () => true;
+      subscriptions.instance().deleteSub(1);
+      expect(subscriptions.state().subsList.length).toEqual(0);
     });
   });
 });
