@@ -30,11 +30,6 @@ describe('<FormModal />', () => {
   });
 
   describe('when clicking the modal background', () => {
-    it('triggers the `hide` callback', () => {
-      formModal.find('.modal-background').simulate('click');
-      expect(mockHide).toHaveBeenCalledTimes(1);
-    })
-
     it('resets all input values', () => {
       formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
       formModal.find('.modal-background').simulate('click');
@@ -56,11 +51,6 @@ describe('<FormModal />', () => {
   });
 
   describe('when clicking the `x` button', () => {
-    it('triggers the `hide` callback', () => {
-      formModal.find('.btn-cross').simulate('click');
-      expect(mockHide).toHaveBeenCalledTimes(1);
-    })
-
     it('resets all input values', () => {
       formModal.find('.input-company').simulate('change', { target: { value: 'Test Company' } });
       formModal.find('.btn-cross').simulate('click');
