@@ -1,68 +1,71 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Subscription Tracker
 
-## Available Scripts
+[![Build Status](https://travis-ci.org/Kdeg0040/subscription_tracker_react.svg?branch=master)](https://travis-ci.org/Kdeg0040/subscription_tracker_react)
+[![Maintainability](https://api.codeclimate.com/v1/badges/e3a7a8155159f18dea4f/maintainability)](https://codeclimate.com/github/Kdeg0040/subscription_tracker_react/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/e3a7a8155159f18dea4f/test_coverage)](https://codeclimate.com/github/Kdeg0040/subscription_tracker_react/test_coverage)
 
-In the project directory, you can run:
+A responsive React app to keep track of your recurring payments.
 
-### `yarn start`
+## Getting Started
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Prerequisites
 
-### `yarn test`
+To get started, you will need [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed on your system. To see whether you already have these installed, run the following commands:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+$ node -v
+$ npm -v
+```
+If no version is detected visit the download pages as linked above to install.
 
-### `yarn build`
+### Installing
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A step by step on how to get a development env running.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Clone this repository and `cd` into directory:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+$ git clone git@github.com:Kdeg0040/subscription_tracker_react.git
+$ cd subscription_tracker_react
+```
 
-### `yarn eject`
+Install node dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+$ npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Launch Application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To start the local development server and open the app in your browser, use:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+$ npm run dev
+```
 
-## Learn More
+If it doesn't open automatically in a new tab, it can be viewed on [http://localhost:3000](http://localhost:3000/) on your chosen browser.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Running the tests
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To run all the test suites, enter the following command:
 
-### Code Splitting
+```
+$ npm test -- --watchAll=false
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+To display code coverage, use:
 
-### Analyzing the Bundle Size
+```
+$ npm test -- --coverage --watchAll=false
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Built With
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* [Clearbit API](https://clearbit.com/developers) - Logos and company search autocomplete made with `Clearbit`.
+* [Create React App](https://github.com/facebook/create-react-app) - Written in React and created using `create-react-app`.
+* [Jest](https://jestjs.io/) & [Enzyme](https://github.com/enzymejs/enzyme) - Tested with 100% coverage using `jest` and `enzyme`.
+* [Bulma](https://bulma.io/) - Styled with `Bulma` a responsive, mobile first CSS framework.
+* [Travis](https://travis-ci.org/) - `Travis` is used for continuous integration and deployment.
+* [Heroku](https://www.heroku.com/) - Deployed on `Heroku`.
