@@ -6,6 +6,8 @@
 
 A responsive React app to keep track of your recurring payments.
 
+![add_sub](https://user-images.githubusercontent.com/51591680/84059591-c7d32d80-a9b2-11ea-8457-7bdcae303705.gif)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
